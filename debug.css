@@ -1,0 +1,34 @@
+/*
+
+	HTML DEBUGGER
+	This should be used to detect tags or attributes
+	no longer supported in HTML 5.
+
+	-------------------------------------------------
+
+	This should NOT end up in the production code.
+	
+	-------------------------------------------------
+	
+	Red Border: Unsupported tags.
+	Orange Border: Not supported by all browsers.
+	Yellow Bottom Border: Unsupported attribute.
+	
+*/
+
+/* HTML 5 Unsupported Tags */
+acronym, applet, basefont, big, center, dir, font, frame, frameset, menu, noframes, strike, tt
+{ border: 5px solid red !important; }
+	
+/* HTML 5 Elements that most browsers do not support. */
+bdi, command, details, dialog, summary
+{ border: 5px solid orange !important;}
+	
+/* HTML 5 UNSPORTTED ATTRIBUTES
+ I could have *[attribute] but chose to be specific instead. */
+area[nohref], a[name], a[charset], a[coords],  a[name],  a[rev], body[alink], body[background], body[bgcolor], body[text], body[vlink], caption[align],	col[align], col[char], col[charoff], col[valign], col[width], colgroup[algin], colgroup[char], colgroup[valign], colgroup[width], form[accept], head[profile], hr[noshade], hr[size], hr[width], html[xmins], iframe[align], iframe[frameborder], iframe[longdesc], iframe[marginheight], iframe[marginwidth], iframe[scrolling], img[align], img[border], img[hspace], img[longdesc], img[vspace], input[align], legend[align], li[type], link[charset], link[rev], link[target], ol[type], object[align], object[archive], object[border], object[classid], object[codebase], object[codetype], object[declare], object[hspace], object[standby], object[vspace], ol[compact], p[align], param[type], param[valuetype], pre[width], script[xml], table[align], table[align],  table[bgcolor], table[cellpadding], table[cellspacing], table[frame], table[rules], table[summary], table[width], tbody[algin], tbody[char], tbody[charoff], tbody[valign], td[abbr], td[align], td[axis], td[bgcolor], td[char], td[charoff], td[height], td[nowrap], td[scope], td[valign], td[width], tfoot[algin], tfoot[char], tfoot[charoff], tfoot[valign], th[abbr], th[align], th[axis], th[bgcolor], th[char], th[height], th[nowrap], th[valign], th[width], thead[align], thead[char], thead[charoff], thead[valign], tr[align], tr[bgcolor], tr[char], tr[charoff], tr[valign], ul[compact], ul[type]
+	{ border-bottom: 2px yellow solid !important; }	
+		
+/* EMPTY ELEMENTS */
+img[alt=""], area[alt=""], *[class=""], a[href=""], a[href="#"], *[id=""], *[title=""]
+{ background-color: yellow !important; }
