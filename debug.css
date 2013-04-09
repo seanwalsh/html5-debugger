@@ -35,4 +35,4 @@ img[alt=""], area[alt=""], *[class=""], a[href=""], a[href="#"], *[id=""], *[tit
 { background-color: yellow !important; }
 
 /* Expose hidden anchors */
-a[name] { width: 25px; height: 25px; background-color: gray; display: inline-block;}
+a[name] { min-width: 25px; height: 25px; display: inline-block;}
