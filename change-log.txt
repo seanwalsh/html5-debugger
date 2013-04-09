@@ -1,4 +1,4 @@
-v1.0 - created
-
+v1.0  - created
+v1.01 - updated css, added example 
 TO DO
 	add more tags to the browser unsported list.
