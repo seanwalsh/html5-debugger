@@ -1,4 +1,4 @@
 html5-debug
 ===========
 
-CSS tag/attribute debuger.
+CSS tag/attribute debugger.
