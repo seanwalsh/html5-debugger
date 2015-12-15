@@ -2,7 +2,9 @@
 
 	HTML DEBUGGER
 	This should be used to detect tags or attributes
-	no longer supported in HTML 5.
+	no longer supported in HTML 5, new tags that have 
+	little browser support or missing attributes or
+	empty elements.
 
 	-------------------------------------------------
 
@@ -10,29 +12,186 @@
 	
 	-------------------------------------------------
 	
+	DEFAULT
 	Red Border: Unsupported tags.
 	Orange Border: Not supported by all browsers.
 	Black Dashed Bottom Border: Unsupported attribute.
 	Yellow Background: Empty attributes.
+	Blue: All elements if $debug-outline-all set to true
 	
 */
 
-/* HTML 5 Unsupported Tags */
-acronym, applet, basefont, big, center, dir, font, frame, frameset, menu, noframes, strike, tt
-{ border: 5px solid red !important; }
-	
-/* HTML 5 Elements that most browsers do not support. */
-bdi, command, details, dialog, summary
-{ border: 5px solid orange !important;}
-	
-/* HTML 5 UNSPORTTED ATTRIBUTES
- I could have *[attribute] but chose to be specific instead. */
-area[nohref], a[name], a[charset], a[coords],  a[name],  a[rev], body[alink], body[background], body[bgcolor], body[text], body[vlink], caption[align],	col[align], col[char], col[charoff], col[valign], col[width], colgroup[algin], colgroup[char], colgroup[valign], colgroup[width], form[accept], head[profile], hr[noshade], hr[size], hr[width], html[xmins], iframe[align], iframe[frameborder], iframe[longdesc], iframe[marginheight], iframe[marginwidth], iframe[scrolling], img[align], img[border], img[hspace], img[longdesc], img[vspace], input[align], legend[align], li[type], link[charset], link[rev], link[target], ol[type], object[align], object[archive], object[border], object[classid], object[codebase], object[codetype], object[declare], object[hspace], object[standby], object[vspace], ol[compact], p[align], param[type], param[valuetype], pre[width], script[xml], table[align], table[align],  table[bgcolor], table[cellpadding], table[cellspacing], table[frame], table[rules], table[summary], table[width], tbody[algin], tbody[char], tbody[charoff], tbody[valign], td[abbr], td[align], td[axis], td[bgcolor], td[char], td[charoff], td[height], td[nowrap], td[scope], td[valign], td[width], tfoot[algin], tfoot[char], tfoot[charoff], tfoot[valign], th[abbr], th[align], th[axis], th[bgcolor], th[char], th[height], th[nowrap], th[valign], th[width], thead[align], thead[char], thead[charoff], thead[valign], tr[align], tr[bgcolor], tr[char], tr[charoff], tr[valign], ul[compact], ul[type]
-{ border-bottom: 5px black solid !important; }
-		
-/* EMPTY ELEMENTS */
-img[alt=""], area[alt=""], *[class=""], a[href=""], a[href="#"], *[id=""], *[title=""]
-{ background-color: yellow !important; }
+// SASS CONFIGURATION
 
-/* HIDDEN ANCHORS */
-a[name] { min-width: 25px; height: 25px; display: inline-block;}
+$debug: true !default;                           // True includes the debug CSS in your compiled CSS file.
+$debug-outline-all: true !default;              // Outlines all elements
+
+// Color
+$debug-unsupported-ele-color: red !default;     // HTML5 elements that have been deprecated or removed
+$debug-unsupported-att-color: black !default;   // HTML5 elements with empty attributes
+$debug-nosupport-color: orange !default;        // HTML5 elements with little to no support
+$debug-empty-color: yellow !default;            // HTML elements that are empty.
+$debug-outline-all-color: blue !default;        // The color of all elements if $debug-outline-all = true.
+                                                // If you want each element to have a different color add https://github.com/mrmrs/pesticide to this project.
+
+// If $debug set to true then lets debug our HTML.
+@if $debug == true {
+  /* HTML 5 Unsupported Tags */
+  acronym,
+  applet,
+  basefont,
+  big,
+  center,
+  dir,
+  font,
+  frame,
+  frameset,
+  noframes,
+  strike,
+  tt { 
+    outline: 5px solid $debug-unsupported-ele-color; }
+  	
+  /* HTML 5 Elements that most browsers do not support. */
+  bdi,
+  command,
+  details,
+  dialog,
+  menu,
+  menuitem,
+  summary { 
+    outline: 2px solid $debug-nosupport-color; }
+  	
+  /* HTML 5 UNSUPPORTED ATTRIBUTES
+   I could have *[attribute] but chose to be specific instead. */
+  area[nohref],
+  a[name],
+  a[charset],
+  a[coords],
+  a[name],
+  a[rev],
+  body[alink],
+  body[background],
+  body[bgcolor],
+  body[text],
+  body[vlink],
+  caption[align],	col[align],
+  col[char],
+  col[charoff],
+  col[valign],
+  col[width],
+  colgroup[algin],
+  colgroup[char],
+  colgroup[valign],
+  colgroup[width],
+  form[accept],
+  head[profile],
+  hr[noshade],
+  hr[size],
+  hr[width],
+  html[xmins],
+  iframe[align],
+  iframe[frameborder],
+  iframe[longdesc],
+  iframe[marginheight],
+  iframe[marginwidth],
+  iframe[scrolling],
+  img[align],
+  img[border],
+  img[hspace],
+  img[longdesc],
+  img[vspace],
+  input[align],
+  legend[align],
+  li[type],
+  link[charset],
+  link[rev],
+  link[target],
+  ol[type],
+  object[align],
+  object[archive],
+  object[border],
+  object[classid],
+  object[codebase],
+  object[codetype],
+  object[declare],
+  object[hspace],
+  object[standby],
+  object[vspace],
+  ol[compact],
+  p[align],
+  param[type],
+  param[valuetype],
+  pre[width],
+  script[xml],
+  table[align],
+  table[align],
+  table[bgcolor],
+  table[cellpadding],
+  table[cellspacing],
+  table[frame],
+  table[rules],
+  table[summary],
+  table[width],
+  tbody[algin],
+  tbody[char],
+  tbody[charoff],
+  tbody[valign],
+  td[abbr],
+  td[align],
+  td[axis],
+  td[bgcolor],
+  td[char],
+  td[charoff],
+  td[height],
+  td[nowrap],
+  td[scope],
+  td[valign],
+  td[width],
+  tfoot[algin],
+  tfoot[char],
+  tfoot[charoff],
+  tfoot[valign],
+  th[abbr],
+  th[align],
+  th[axis],
+  th[bgcolor],
+  th[char],
+  th[height],
+  th[nowrap],
+  th[valign],
+  th[width],
+  thead[align],
+  thead[char],
+  thead[charoff],
+  thead[valign],
+  tr[align],
+  tr[bgcolor],
+  tr[char],
+  tr[charoff],
+  tr[valign],
+  ul[compact],
+  ul[type] { 
+    outline: 1px $debug-unsupported-att-color solid; }
+  		
+  /* EMPTY or HIDDEN ELEMENTS */
+  img[alt=""],
+  area[alt=""],
+  *[class=""],
+  a[href=""],
+  a[href="#"],
+  *[id=""],
+  *[title=""],
+  a[name] {
+    background-color: $debug-empty-color; }
+  
+  /* HIDDEN ANCHORS */
+  a[name] { 
+    display: inline-block;
+    height: 25px;
+    min-width: 25px; }
+  
+  // If debut-outline-all is true then outline all elelements.
+  @if $debug-outline-all == true {
+    * { outline: 1px solid #2980b9; }
+  }
+} // end $debug
