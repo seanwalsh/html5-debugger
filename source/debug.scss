@@ -42,22 +42,26 @@ $debug-outline-all-color: blue !default;        // The color of all elements if 
   basefont,
   big,
   center,
+  command
   dir,
   font,
   frame,
   frameset,
+  menuitem,
+  nobr,
+  noembed,
   noframes,
+  param,
+  plaintext,
+  rb,
+  rtc,
   strike,
-  tt { 
+  tt,
+  xmp { 
     outline: 5px solid $debug-unsupported-ele-color; }
   	
   /* HTML 5 Elements that most browsers do not support. */
-  bdi,
-  command,
-  details,
-  dialog,
   menu,
-  menuitem,
   summary { 
     outline: 2px solid $debug-nosupport-color; }
   	
