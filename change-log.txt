@@ -1,4 +1,3 @@
 v1.0  - created
 v1.01 - updated css, added example 
-TO DO
-	add more tags to the browser unsported list.
+V1.02 - add more tags to the browser unsupported list.
